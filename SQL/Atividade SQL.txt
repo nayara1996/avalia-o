@@ -1,0 +1,17 @@
+SELECT "pessoaID", nome, cpf, idade, sexo
+FROM public."tb.pessoa";
+
+SELECT "enderecoID", tipo, logradouro, numero, complemento, cep, cidade, estado, "pessoaID"
+FROM public."tb.endereço";
+
+INSERT INTO public."tb.pessoa"
+("pessoaID", nome, cpf, idade, sexo)
+VALUES(5, 'Mario', '12345678999', '05/02/1971', 'm');
+
+INSERT INTO public."tb.endereço"
+("enderecoID", tipo, logradouro, numero, complemento, cep, cidade, estado, "pessoaID")
+VALUES(5, 'Av', 'Av Santo Amaro', '15', 'AP23', 12333123, 'São Paulo', 'SP', 5);
+
+select *
+from "tb.pessoa" tp 
+inner join "tb.endereço" te on tp."pessoaID" = te."enderecoID"
